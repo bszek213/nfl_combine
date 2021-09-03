@@ -1,0 +1,17 @@
+name: nfl_combine
+channels:
+- conda-forge
+- robostack
+- anaconda
+- intel
+dependencies:
+- hvplot
+- numpy
+- pandas
+- scikit-learn
+- scipy
+- ipython
+- seaborn
+- ipywidgets
+- ipykernel
+- openpyxl
