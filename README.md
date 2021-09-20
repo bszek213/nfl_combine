@@ -2,8 +2,6 @@
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
 ```bash
 $ conda env create -f nfl_combine.yml
 $ conda activate nfl_combine
