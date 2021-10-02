@@ -37,7 +37,7 @@ class nflCombine:
         snaps_cum_2014 = pd.Series(dtype = float)
         snaps_cum_2015 = pd.Series(dtype = float)
 
-    def read_in(self,path):
+    def read_in(self,path): #change this to be relative via argparse()
         self.pd_2013 = pd.read_excel('/home/bszekely/Desktop/ProjectsResearch/nfl_combine/NFL 2013_edit.xlsx')
         self.pd_2014 = pd.read_excel('/home/bszekely/Desktop/ProjectsResearch/nfl_combine/NFL 2014_edit.xlsx')
         self.pd_2015 = pd.read_excel('/home/bszekely/Desktop/ProjectsResearch/nfl_combine/NFL 2015_edit.xlsx')
@@ -68,6 +68,7 @@ class nflCombine:
         snaps_parse_13 = self.snaps_cum_2013.iloc[index_nonzero_13]
         snaps_parse_14 = self.snaps_cum_2014.iloc[index_nonzero_14]
         snaps_parse_15 = self.snaps_cum_2015.iloc[index_nonzero_15]
+        
         pd_2013_nozero = self.pd_2013.iloc[index_nonzero_13,:]
         pd_2014_nozero = self.pd_2014.iloc[index_nonzero_14,:]
         pd_2015_nozero = self.pd_2015.iloc[index_nonzero_15,:]
@@ -108,7 +109,6 @@ class nflCombine:
         x = df_15.append(x_append)  
         y = y_data_15_nonan.append(y_append)     
         
-        #print(np.median(y),"median snaps", np.std(y), "STD snaps")
         print(len(x_data_13_nonan), "Samples started with - 2013")
         print(len(x_data_14_nonan), "Samples started with - 2014")
         print(len(x_data_15_nonan), "Samples started with - 2015")
