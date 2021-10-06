@@ -28,6 +28,7 @@ from sklearn.linear_model import LogisticRegression
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.inspection import permutation_importance
+import hvplot
 
 
 class nflCombineClassify(nflCombine):
@@ -47,40 +48,48 @@ class nflCombineClassify(nflCombine):
                           'Shuttle','3Cone']]
         x_data_15_ = self.pd_2015[['40yd','Vertical','BP','Broad Jump',
                           'Shuttle','3Cone']]
+        x_data_17_ = self.pd_2017[['40yd','Vertical','BP','Broad Jump',
+                          'Shuttle','3Cone']]
 
         index_nan_13 = x_data_13_.dropna().index.tolist()
         index_nan_14 = x_data_14_.dropna().index.tolist()
         index_nan_15 = x_data_15_.dropna().index.tolist()
+        index_nan_17 = x_data_17_.dropna().index.tolist()
 
         y_data_13_nonan = self.snaps_cum_2013.loc[index_nan_13]
         y_data_14_nonan = self.snaps_cum_2014.loc[index_nan_14]
         y_data_15_nonan = self.snaps_cum_2015.loc[index_nan_15]
+        y_data_17_nonan = self.snaps_cum_2017.loc[index_nan_17]
         
         x_data_13_nonan = x_data_13_.loc[index_nan_13]
         x_data_14_nonan = x_data_14_.loc[index_nan_14]
         x_data_15_nonan = x_data_15_.loc[index_nan_15]
+        x_data_17_nonan = x_data_17_.loc[index_nan_17]
         
         print(len(y_data_13_nonan), "Samples ended with - 2013")
         print(len(y_data_14_nonan), "Samples ended with - 2014")
         print(len(y_data_15_nonan), "Samples ended with - 2015")
+        print(len(y_data_17_nonan), "Samples ended with - 2017")
         
         #convert to binary
         y_data_13_nonan[y_data_13_nonan > 0] = 1
         y_data_14_nonan[y_data_14_nonan > 0] = 1
         y_data_15_nonan[y_data_15_nonan > 0] = 1
+        y_data_17_nonan[y_data_17_nonan > 0] = 1
         
-        y = pd.concat([y_data_13_nonan, y_data_14_nonan, y_data_15_nonan]).astype(int)
-        x = pd.concat([x_data_13_nonan, x_data_14_nonan, x_data_15_nonan])
+        y = pd.concat([y_data_13_nonan, y_data_14_nonan, y_data_15_nonan, y_data_17_nonan]).astype(int)
+        x = pd.concat([x_data_13_nonan, x_data_14_nonan, x_data_15_nonan, x_data_17_nonan])
         
         self.x_train_classify,self.X_test_classify,self.y_train_classify,self.y_test_classify = train_test_split(x,y)
         
     def model_test_classify(self):
-        self.model1_classify = DecisionTreeClassifier()
-        self.model2_classify = GradientBoostingClassifier()
+        
+        self.model1_classify = DecisionTreeClassifier(criterion='entropy')
+        self.model2_classify = GradientBoostingClassifier(n_estimators=105,max_depth=4,tol=0.001)
         self.model3_classify = SVC(kernel='linear')
         self.model4_classify = GaussianNB()
-        self.model5_classify = RandomForestClassifier()
-        self.model6_classify = LogisticRegression()
+        self.model5_classify = RandomForestClassifier(n_estimators=105,criterion='entropy',min_samples_leaf=4)
+        self.model6_classify = LogisticRegression(max_iter=105)
         
         self.model1_classify.fit(self.x_train_classify,self.y_train_classify)
         self.model2_classify.fit(self.x_train_classify,self.y_train_classify)
@@ -104,10 +113,8 @@ class nflCombineClassify(nflCombine):
         print("GaussianNB Accuracy:",metrics.accuracy_score(self.y_test_classify, y_pred4))
         print("RandomForestClassifier Accuracy:",metrics.accuracy_score(self.y_test_classify, y_pred5))
         print("LogisticRegression Accuracy:",metrics.accuracy_score(self.y_test_classify, y_pred6))
+        
 
-        
-        
-        
     def plot_feature_importance_classify(self):
         imps = permutation_importance(self.model4_classify, self.X_test_classify, self.y_test_classify)
         #Calculate feature importance 
@@ -140,4 +147,13 @@ if __name__ == '__main__':
     classify = nflCombineClassify('')
     classify.snaps_to_binary()
     classify.model_test_classify()
+    lst = []
+    cols = ['acc']
+    # h_para = 100
+    # for i in range(0,20):
+    #     save_list =  classify.model_test_classify(h_para)
+    #     lst.append(save_list)
+    #     h_para =+ 5 
+    # acc = pd.DataFrame(lst,columns=cols)
+    # hvplot.show(acc.plot())
     classify.plot_feature_importance_classify()
