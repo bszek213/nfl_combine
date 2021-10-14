@@ -5,7 +5,7 @@
 ```bash
 $ conda env create -f nfl_combine.yml
 $ conda activate nfl_combine
-$ python nfl_combine.py    
+$ python nfl_combine_regressor.py    
 ```
 
 ## Usage
