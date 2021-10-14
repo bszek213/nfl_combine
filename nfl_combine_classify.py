@@ -14,7 +14,7 @@ run classifiers:
 @author: bszekely
 """
 
-from nfl_combine import nflCombine
+from nfl_combine_regressor import nflCombineRegressor
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
@@ -31,7 +31,7 @@ from sklearn.inspection import permutation_importance
 import hvplot
 
 
-class nflCombineClassify(nflCombine):
+class nflCombineClassify(nflCombineRegressor):
     
     def __init__(self,path):
         super().__init__()
