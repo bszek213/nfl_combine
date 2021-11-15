@@ -1,0 +1,13 @@
+"Classification – best algorithm over 10-fold cross validation","Percent accuracy"
+"results of DT:  0.6276395173453997",
+"results of GB:  0.7015460030165913",
+"results of SV_C:  0.7441930618401207",
+"results of RF:  0.7265460030165912",
+"results of LF:  0.7403469079939669",
+,
+"Regression – best algorithm over 10-fold cross validation","root_mean_squared_error"
+"results of DT:  1764.1632017757588",
+"results of GB:  1306.5344935119585",
+"results of SV_C:  1227.8709966425922",
+"results of RF:  1269.6717625130161",
+"results of LR:  1177.0415195021574",
