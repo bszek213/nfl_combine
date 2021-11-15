@@ -5,7 +5,7 @@
 ```bash
 $ mamba env create -f nfl_combine.yml
 $ conda activate nfl_combine
-$ python nfl_combine_regressor.py    
+$ python nfl_combine_regressor.py or python nfl_combine_classifier.py    
 ```
 
 ## Usage
