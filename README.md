@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-$ conda env create -f nfl_combine.yml
+$ mamba env create -f nfl_combine.yml
 $ conda activate nfl_combine
 $ python nfl_combine.py    
 ```
