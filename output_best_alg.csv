@@ -11,3 +11,18 @@
 "results of SV_C:  1227.8709966425922",
 "results of RF:  1269.6717625130161",
 "results of LR:  1177.0415195021574",
+,
+"AFTER ADDING 2016 DATA",
+"Classification – best algorithm over 10-fold cross validation"," best params:  {'n_estimators': 944, 'min_samples_split': 2, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'max_depth': 97, 'bootstrap': True}"
+"results of DT:  0.7297355769230769","accuracy on test data:  0.8260869565217391"
+"results of GB:  0.7716105769230769",
+"results of SV_C:  0.7562259615384616",
+"results of RF:  0.8089423076923076",
+"results of LF:  0.7546634615384615",
+,
+"Regression – best algorithm over 10-fold cross validation","RMSE on test data 1111.8781214107578"
+"results of DT:  1731.3092505542324",
+"results of GB:  1289.3796937522309",
+"results of SV_R:  1298.790135421486",
+"results of RF:  1276.0113263092294",
+"results of LR:  1210.1732729462683",
