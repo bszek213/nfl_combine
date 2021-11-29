@@ -20,7 +20,7 @@
 "results of RF:  0.8089423076923076",
 "results of LF:  0.7546634615384615",
 ,
-"Regression – best algorithm over 10-fold cross validation","RMSE on test data 1111.8781214107578"
+"Regression – best algorithm over 10-fold cross validation","RMSE on test data 904.6"
 "results of DT:  1731.3092505542324",
 "results of GB:  1289.3796937522309",
 "results of SV_R:  1298.790135421486",
