@@ -1,4 +1,16 @@
 "Classification – best algorithm over 10-fold cross validation","Percent accuracy"
+
+"293 Samples started with - 2013",
+"304 Samples started with - 2014",
+"741 Samples started with - 2015",
+"309 Samples started with - 2016",
+"326 Samples started with - 2017",
+"162 Samples ended with - 2013,
+"170 Samples ended with - 2014,
+"160 Samples ended with - 2015,
+"160 Samples ended with - 2016,
+"153 Samples ended with - 2017,
+
 "results of DT:  0.6276395173453997",
 "results of GB:  0.7015460030165913",
 "results of SV_C:  0.7441930618401207",
@@ -20,9 +32,20 @@
 "results of RF:  0.8089423076923076",
 "results of LF:  0.7546634615384615",
 ,
-"Regression – best algorithm over 10-fold cross validation","RMSE on test data 904.6", r-squared value = 0.1747438818836593
+"Regression – best algorithm over 10-fold cross validation","RMSE on test data 904.6 r-squared value = 0.1747438818836593",
 "results of DT:  1731.3092505542324",
 "results of GB:  1289.3796937522309",
 "results of SV_R:  1298.790135421486",
 "results of RF:  1276.0113263092294",
 "results of LR:  1210.1732729462683",
+
+"293 Samples started with - 2013",
+"304 Samples started with - 2014",
+"741 Samples started with - 2015",
+"309 Samples started with - 2016",
+"326 Samples started with - 2017",
+"121 Samples started with - 2013",
+"136 Samples started with - 2014",
+"123 Samples started with - 2015",
+"100 Samples started with - 2017",
+
