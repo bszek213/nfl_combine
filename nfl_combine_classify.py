@@ -88,6 +88,11 @@ class nflCombineClassify(nflCombineRegressor):
         y_data_16_nonan[y_data_16_nonan > 0] = 1
         y_data_17_nonan[y_data_17_nonan > 0] = 1
         
+        len_snaps = len(y_data_13_nonan) + len(y_data_14_nonan) + len(y_data_15_nonan) + len(y_data_16_nonan) + len(y_data_17_nonan)
+        sum_1 = sum(y_data_13_nonan) +  sum(y_data_14_nonan) + sum(y_data_15_nonan) + sum(y_data_16_nonan) + sum(y_data_17_nonan)
+        
+        print('ratio of how many 1 to 0: ', sum_1/len_snaps)
+
         scaler = StandardScaler()
         x_data_13 = scaler.fit_transform(x_data_13_nonan)
         x_data_14 = scaler.fit_transform(x_data_14_nonan) 

@@ -145,7 +145,7 @@ class nflCombineRegressor:
         print(len(x_data_13_nonan), "Samples started with - 2013")
         print(len(x_data_14_nonan), "Samples started with - 2014")
         print(len(x_data_15_nonan), "Samples started with - 2015")
-        #print(len(x_data_16_nonan), "Samples started with - 2016")
+        print(len(x_data_16_nonan), "Samples started with - 2016")
         print(len(x_data_17_nonan), "Samples started with - 2017")
 
         self.x_train, self.x_rem, self.y_train, self.y_rem = train_test_split(x,y, train_size=0.8)
@@ -185,7 +185,7 @@ class nflCombineRegressor:
         final_model = LinearRegression()
         final_model.fit(self.x_test,self.y_test)
         print('RMSE on test data',mean_squared_error(self.y_test, final_model.predict(self.x_test), squared=False))
-        
+        print('R squared value test data: ',r2_score(self.y_test, final_model.predict(self.x_test)))
         return final_model
         # self.model.fit(self.x_train,self.y_train)
         # self.model2.fit(self.x_train,self.y_train)
@@ -285,6 +285,7 @@ class nflCombineRegressor:
         # sns.barplot(ax=axs[4],x=feature_imp3,y=feature_imp3.index)
         # # plt.xlabel('Feature Importance')
         axs.set_title('Linear Regression Feature Importances', fontsize=20)
+        axs.set_xlabel('Feature Importance (Beta Coefficient)', fontsize=16)
         axs.tick_params(axis='both', which='major', labelsize=16)
         axs.tick_params(axis='both', which='minor', labelsize=16)
         # axs[1].set_title('RandomForestRegressor')
@@ -293,6 +294,7 @@ class nflCombineRegressor:
         # axs[4].set_title('LinearRegression')
         plt.draw()
         plt.show()
+        fig.savefig("feature_imp_regression.png", dpi=150)
         
         
         
