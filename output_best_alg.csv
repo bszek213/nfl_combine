@@ -18,11 +18,11 @@
 "results of LF:  0.7403469079939669",
 ,
 "Regression – best algorithm over 10-fold cross validation","root_mean_squared_error"
-"results of DT:  1764.1632017757588",
-"results of GB:  1306.5344935119585",
-"results of SV_C:  1227.8709966425922",
-"results of RF:  1269.6717625130161",
-"results of LR:  1177.0415195021574",
+"results of DT:  1731.3",
+"results of GB:  1289.3",
+"results of SV_R:  1298.8",
+"results of RF:  1276.0",
+"results of LR:  1210.01",
 ,
 "AFTER ADDING 2016 DATA",
 "Classification – best algorithm over 10-fold cross validation"," best params:  {'n_estimators': 944, 'min_samples_split': 2, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'max_depth': 97, 'bootstrap': True}"
